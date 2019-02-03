@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html ng-app="pruebaTecnica" ng-controller="LayoutController">
+<head>
+    <title>Doctus - PruebaTecnica</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <!-- Estilos-->
+    <link rel="stylesheet" href="Recursos/Plugins/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="Recursos/Plugins/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="Recursos/Estilos/AdminLTE.min.css" />
+    <link rel="stylesheet" href="Recursos/Estilos/general.css" />
+    <link rel="stylesheet" href="Recursos/Plugins/datepicker/datepicker3.css" />
+</head>
+
+
+<body>
+
+
+    <pre>{{getUsuarioLogeado}}</pre>
+
+    <div class="container-fluid header">
+        <div class="col-md-5">
+            <h3> <i class="fa fa-handshake-o" aria-hidden="true"></i> Prueba Técnica <span><small>Por Cristian López</small></span></h3>
+        </div>
+        <div class="col-md-3 col-md-offset-4">
+            <h3> <i class="fa fa-handshake-o" aria-hidden="true"></i>
+                <small style="cursor: pointer"
+                        class="glyphicon glyphicon-log-out"
+                        ng-show="getUsuarioLogeado != null
+                        || getUsuarioLogeado != undefined" ng-click="logout()"> Salir
+                </small>
+            </h3>
+        </div>
+    </div>
+
+    <div ng-if="route.current.loadedTemplateUrl.indexOf(layout.url) != 0">
+        <div ng-view></div>
+    </div>
+
+    <div ng-include='layout.url'
+         ng-show="getUsuarioLogeado == null
+                    || getUsuarioLogeado == undefined">
+    </div>
+
+
+    <!-- Plugin -->
+    <script type="text/javascript" src="Recursos/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src="Recursos/plugins/angular/angular.min.js"></script>
+    <script type="text/javascript" src="Recursos/Plugins/angular/angular-route.min.js"></script>
+    <script type="text/javascript" src="Recursos/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="Recursos/Plugins/datepicker/bootstrap-datepicker.js"></script>
+
+    <!-- Configuración-->
+    <script type="text/javascript" src="Recursos/rutas.js"></script>
+    <script type="text/javascript" src="Recursos/layout.js"></script>
+    <script type="text/javascript" src="Recursos/autenticacion.js"></script>
+    <script type="text/javascript" src="Recursos/general.js"></script>
+
+    <!--Controladores -->
+    <script type="text/javascript" src="Recursos/Javascript/actividades.js"></script>
+    <script type="text/javascript" src="Recursos/Javascript/horas.js"></script>
+</body>
+</html>

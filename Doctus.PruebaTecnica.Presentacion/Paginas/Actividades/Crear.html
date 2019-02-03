@@ -1,0 +1,52 @@
+﻿<div class="container">
+    <div class="row">
+        <form role="form" name="formCrear" ng-submit="crear(actividad)">
+
+            <div class="col-md-7 col-md-offset-2" style="text-align:center">
+                
+                <label>Descripción <span style="color: red; font-weight:bold"> *</span></label>
+                <textarea class="form-control"
+                          ng-model="actividad.Descripcion"
+                          ng-required="true"
+                          placeholder="De una descripción breve de su actividad">
+                </textarea>
+
+                <br /><button type="submit" class="btn btn-primary">Crear actividad</button><br /><br />
+            </div>
+        </form>
+    </div>
+
+    <div class="row">
+        <div class="col-md-7 col-xs-12">
+            <h3>Lista de actividades</h3>
+            <hr />
+            <div class="container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Acciones</th>
+                            <th>Descripcion</th>
+                            <th>Creado <small>(dd/mm/aa)</small></th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in listaActividades">
+                            <td>
+                                <a href="./#/Horas/Crear/{{item.Id}}"
+                                   class="btn btn-primary">Agregar horas</a>
+                            </td>
+                            <td>{{item.Descripcion }}</td>
+                            <td>{{item.Creado | date:'dd/MM/yyyy' }}</td>
+                            <td>
+                                <span style="cursor:pointer"
+                                      ng-click="eliminar(item)"
+                                      class="glyphicon glyphicon-trash"></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
